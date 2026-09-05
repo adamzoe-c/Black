@@ -9,15 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0A0A0A;
-    --bg-alt:#141414;
-    --card:#1C1C1C;
-    --card-line: rgba(245,239,226,0.09);
-    --cream:#F5EFE2;
-    --muted:#B3A997;
+    --bg:#FFFFFF;
+    --bg-alt:#F6F3EA;
+    --card:#FFFFFF;
+    --card-line: rgba(20,20,20,0.1);
+    --cream:#17150F;
+    --muted:#6b6759;
     --orange:#E8722C;
     --orange-dk:#C25A1E;
-    --gold:#E3A93A;
+    --gold:#C98A1E;
     --max-w:1180px;
   }
 
@@ -56,24 +56,9 @@
   .nav-cta{background:var(--orange); color:var(--bg); padding:11px 24px; border-radius:30px; font-size:0.9rem; font-weight:600; transition:background .2s;}
   .nav-cta:hover{background:var(--gold);}
   .menu-toggle{display:none; background:none; border:none; font-size:1.6rem; color:var(--cream);}
-  .theme-toggle{
-    background:var(--card); border:1px solid var(--card-line); color:var(--cream);
-    width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    font-size:1rem; margin-left:14px; transition:background .2s, color .2s;
-  }
-  .theme-toggle:hover{border-color:var(--orange);}
-
-  /* Light mode override — swaps the whole palette to a white/off-white theme */
-  body.light-mode{
-    --bg:#FFFFFF;
-    --bg-alt:#F6F3EA;
-    --card:#FFFFFF;
-    --card-line: rgba(20,20,20,0.1);
-    --cream:#17150F;
-    --muted:#6b6759;
-  }
-  body.light-mode .dish-card,
-  body.light-mode .review-card{ box-shadow:0 2px 14px rgba(20,20,20,0.05); }
+  .lang-switch{display:flex; align-items:center; gap:2px; background:var(--bg-alt); border:1px solid var(--card-line); border-radius:30px; padding:3px; margin-left:14px;}
+  .lang-btn{background:none; border:none; padding:7px 14px; border-radius:30px; font-size:0.8rem; font-weight:600; color:var(--muted); letter-spacing:0.03em;}
+  .lang-btn.active{background:var(--orange); color:#FFFFFF;}
 
   @media (max-width:860px){
     .navlinks{position:fixed; inset:80px 0 auto 0; background:var(--bg); flex-direction:column; align-items:stretch; gap:0; padding:8px 32px 24px; border-bottom:1px solid var(--card-line); transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease;}
@@ -89,7 +74,7 @@
   .hero{position:relative; min-height:92vh; display:flex; align-items:flex-end; overflow:hidden;}
   .hero-bg{position:absolute; inset:0; z-index:0;}
   .hero-bg img{width:100%; height:100%; object-fit:cover;}
-  .hero-scrim{position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.45) 45%, rgba(10,10,10,0.94) 100%);}
+  .hero-scrim{position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(40,24,14,0.2) 0%, rgba(40,24,14,0.4) 45%, rgba(40,24,14,0.92) 100%);}
   .hero-content{position:relative; z-index:2; padding:120px 32px 90px; max-width:820px;}
   .hero-badge{display:inline-flex; align-items:center; gap:12px; background:rgba(20,20,20,0.5); backdrop-filter:blur(6px); border:1px solid rgba(245,239,226,0.2); color:var(--cream); font-size:0.75rem; letter-spacing:0.14em; padding:10px 20px; border-radius:30px; text-transform:uppercase;}
   .hero-badge::before{content:''; width:22px; height:1px; background:var(--cream); display:inline-block;}
@@ -99,7 +84,7 @@
   .hero-actions{margin-top:36px; display:flex; flex-direction:column; align-items:flex-start; gap:16px; max-width:340px;}
 
   .btn{display:inline-block; padding:16px 30px; font-size:0.95rem; font-weight:600; border-radius:30px; border:1.5px solid transparent; transition:all .2s; text-align:center;}
-  .btn-primary{background:var(--orange); color:#0A0A0A;}
+  .btn-primary{background:var(--orange); color:#FFFFFF;}
   .btn-primary:hover{background:var(--gold); transform:translateY(-1px);}
   .btn-ghost{border-color:rgba(232,114,44,0.6); color:var(--orange); background:transparent;}
   .btn-ghost:hover{background:rgba(232,114,44,0.1); border-color:var(--orange);}
@@ -264,31 +249,34 @@
   <nav class="wrap">
     <a href="#" class="brand"><img src="logo.jpg" alt="Chez Black"></a>
     <div class="navlinks" id="navlinks">
-      <a href="#storia">La Storia</a>
-      <a href="#menu">Menù</a>
-      <a href="#galleria">Galleria</a>
-      <a href="#eventi">Eventi</a>
-      <a href="#chef">Lo Chef</a>
-      <a href="#recensioni">Recensioni</a>
-      <a href="#contatti">Contatti</a>
-      <a href="#contatti" class="nav-cta">Prenota</a>
+      <a href="#storia" data-i18n-en="Our Story">La Storia</a>
+      <a href="#menu" data-i18n-en="Menu">Menù</a>
+      <a href="#galleria" data-i18n-en="Gallery">Galleria</a>
+      <a href="#eventi" data-i18n-en="Events">Eventi</a>
+      <a href="#chef" data-i18n-en="The Chef">Lo Chef</a>
+      <a href="#recensioni" data-i18n-en="Reviews">Recensioni</a>
+      <a href="#contatti" data-i18n-en="Contact">Contatti</a>
+      <a href="#contatti" class="nav-cta" data-i18n-en="Book a Table">Prenota</a>
     </div>
-    <a href="#contatti" class="btn nav-cta">Prenota</a>
-    <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema chiaro/scuro">☀</button>
+    <a href="#contatti" class="btn nav-cta" data-i18n-en="Book a Table">Prenota</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Apri menu">☰</button>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-bg"><img src="hero.jpg" alt="Chez Black, Positano"></div>
+  <div class="hero-bg"><img src="hero1.jpg" alt="Chez Black, Positano"></div>
   <div class="hero-scrim"></div>
   <div class="hero-content">
-    <div class="hero-badge">— Positano, Salerno · dal 1949</div>
-    <h1>Cucina di mare, <span class="accent-italic">terrazza</span> sul porto. Tre generazioni, <span class="accent-italic">un'unica casa.</span></h1>
-    <p class="lede">Chez Black nasce dal coraggio di una famiglia di pescatori e porta ancora oggi in tavola quello che il mare offre ogni mattina — la stessa ricetta, la stessa spiaggia, da settantacinque anni.</p>
+    <div class="hero-badge" data-i18n-en="— Positano, Salerno · since 1949">— Positano, Salerno · dal 1949</div>
+    <h1 data-i18n-en="Seafood cuisine, &lt;span class=&#39;accent-italic&#39;&gt;terrace&lt;/span&gt; on the harbor. Three generations, &lt;span class=&#39;accent-italic&#39;&gt;one home.&lt;/span&gt;">Cucina di mare, <span class="accent-italic">terrazza</span> sul porto. Tre generazioni, <span class="accent-italic">un'unica casa.</span></h1>
+    <p class="lede" data-i18n-en="Chez Black was born from the courage of a fishing family and still brings to the table what the sea offers each morning — the same recipe, the same beach, for seventy-five years.">Chez Black nasce dal coraggio di una famiglia di pescatori e porta ancora oggi in tavola quello che il mare offre ogni mattina — la stessa ricetta, la stessa spiaggia, da settantacinque anni.</p>
     <div class="hero-actions">
-      <a href="#contatti" class="btn btn-primary">Prenota un tavolo</a>
-      <a href="#storia" class="btn btn-ghost">La nostra storia</a>
+      <a href="#contatti" class="btn btn-primary" data-i18n-en="Book a Table">Prenota un tavolo</a>
+      <a href="#storia" class="btn btn-ghost" data-i18n-en="Our Story">La nostra storia</a>
     </div>
   </div>
 </section>
@@ -303,8 +291,8 @@
 <section class="story" id="storia">
   <div class="wrap">
     <div class="story-head">
-      <div class="story-label">Settantacinque anni</div>
-      <h2>Tre generazioni sulla stessa spiaggia</h2>
+      <div class="story-label" data-i18n-en="Seventy-five years">Settantacinque anni</div>
+      <h2 data-i18n-en="Three generations on the same beach">Tre generazioni sulla stessa spiaggia</h2>
     </div>
     <div class="story-grid">
       <div class="story-sticky">
@@ -341,14 +329,14 @@
 <section class="menu" id="menu">
   <div class="wrap">
     <div class="menu-head">
-      <h2>I nostri piatti <span class="accent">più amati</span></h2>
-      <p>Una selezione dei piatti storici — il menù completo, con oltre quaranta portate, è disponibile in sala.</p>
+      <h2 data-i18n-en="Our most loved &lt;span class=&#39;accent&#39;&gt;dishes&lt;/span&gt;">I nostri piatti <span class="accent">più amati</span></h2>
+      <p data-i18n-en="A selection of our historic dishes — the full menu, with over forty dishes, is available in the dining room.">Una selezione dei piatti storici — il menù completo, con oltre quaranta portate, è disponibile in sala.</p>
     </div>
     <div class="tabs" role="tablist">
-      <button class="tab-btn active" data-tab="antipasti">Antipasti</button>
-      <button class="tab-btn" data-tab="primi">Primi</button>
-      <button class="tab-btn" data-tab="secondi">Secondi</button>
-      <button class="tab-btn" data-tab="dolci">Dolci</button>
+      <button class="tab-btn active" data-tab="antipasti" data-i18n-en="Starters">Antipasti</button>
+      <button class="tab-btn" data-tab="primi" data-i18n-en="First Courses">Primi</button>
+      <button class="tab-btn" data-tab="secondi" data-i18n-en="Main Courses">Secondi</button>
+      <button class="tab-btn" data-tab="dolci" data-i18n-en="Desserts">Dolci</button>
     </div>
 
     <div class="dish-grid active" id="antipasti">
@@ -379,8 +367,8 @@
 <section class="gallery" id="galleria">
   <div class="wrap">
     <div class="gallery-head">
-      <h2>Galleria</h2>
-      <p>Uno sguardo su Chez Black — la sala, la spiaggia, i piatti che ci raccontano da settantacinque anni.</p>
+      <h2 data-i18n-en="Gallery">Galleria</h2>
+      <p data-i18n-en="A look at Chez Black — the dining room, the beach, the dishes that have told our story for seventy-five years.">Uno sguardo su Chez Black — la sala, la spiaggia, i piatti che ci raccontano da settantacinque anni.</p>
     </div>
     <div class="gallery-grid" id="galleryGrid">
       <button data-index="0"><img src="1.jpg" alt="Chez Black — foto 1"></button>
@@ -409,20 +397,20 @@
 <section class="events" id="eventi">
   <div class="wrap events-grid">
     <div>
-      <h2>I momenti importanti, in riva al mare</h2>
-      <p class="lede2">Da settantacinque anni Chez Black accoglie non solo pranzi e cene, ma i giorni che si ricordano: un matrimonio in spiaggia, un compleanno importante, una serata tra amici.</p>
-      <a href="#contatti" class="btn btn-ghost" style="margin-top:24px;">Richiedi disponibilità</a>
+      <h2 data-i18n-en="The important moments, by the sea">I momenti importanti, in riva al mare</h2>
+      <p class="lede2" data-i18n-en="For seventy-five years Chez Black has hosted not just lunches and dinners, but the days people remember: a wedding on the beach, a milestone birthday, an evening among friends.">Da settantacinque anni Chez Black accoglie non solo pranzi e cene, ma i giorni che si ricordano: un matrimonio in spiaggia, un compleanno importante, una serata tra amici.</p>
+      <a href="#contatti" class="btn btn-ghost" style="margin-top:24px;" data-i18n-en="Check Availability">Richiedi disponibilità</a>
       <div class="stat-row">
-        <div class="stat"><div class="n" data-count="50">0</div><div class="l">ospiti max, matrimoni</div></div>
-        <div class="stat"><div class="n" data-count="75">0</div><div class="l">anni di storia</div></div>
-        <div class="stat"><div class="n" data-count="3">0</div><div class="l">generazioni in cucina</div></div>
+        <div class="stat"><div class="n" data-count="50">0</div><div class="l" data-i18n-en="max guests, weddings">ospiti max, matrimoni</div></div>
+        <div class="stat"><div class="n" data-count="75">0</div><div class="l" data-i18n-en="years of history">anni di storia</div></div>
+        <div class="stat"><div class="n" data-count="3">0</div><div class="l" data-i18n-en="generations in the kitchen">generazioni in cucina</div></div>
       </div>
     </div>
     <div class="events-list">
-      <div><span>Matrimoni</span><span>fino a 50 persone</span></div>
-      <div><span>Addio al celibato / nubilato</span><span>su richiesta</span></div>
-      <div><span>Anniversari</span><span>su richiesta</span></div>
-      <div><span>Eventi privati</span><span>su richiesta</span></div>
+      <div><span data-i18n-en="Weddings">Matrimoni</span><span data-i18n-en="up to 50 guests">fino a 50 persone</span></div>
+      <div><span data-i18n-en="Bachelor / bachelorette parties">Addio al celibato / nubilato</span><span data-i18n-en="on request">su richiesta</span></div>
+      <div><span data-i18n-en="Anniversaries">Anniversari</span><span data-i18n-en="on request">su richiesta</span></div>
+      <div><span data-i18n-en="Private events">Eventi privati</span><span data-i18n-en="on request">su richiesta</span></div>
     </div>
   </div>
 </section>
@@ -431,10 +419,10 @@
   <div class="wrap chef-grid">
     <div class="chef-photo"><img src="hero.jpg" alt="Lo chef di Chez Black"></div>
     <div>
-      <div class="chef-label">La famiglia in cucina</div>
-      <h2>Tre generazioni, <span class="accent">una sola ricetta</span></h2>
-      <p>Dal 1949, la cucina di Chez Black è rimasta nelle stesse mani di famiglia. Oggi è la terza generazione a portare avanti la tradizione, con lo stesso principio di sempre: si cucina quello che il mare offre quella mattina.</p>
-      <p class="chef-quote">"La cucina non è cambiata. Solo le mani che la portano avanti."</p>
+      <div class="chef-label" data-i18n-en="The family in the kitchen">La famiglia in cucina</div>
+      <h2 data-i18n-en="Three generations, &lt;span class=&#39;accent&#39;&gt;one recipe&lt;/span&gt;">Tre generazioni, <span class="accent">una sola ricetta</span></h2>
+      <p data-i18n-en="Since 1949, the kitchen at Chez Black has stayed in the same family's hands. Today it's the third generation carrying the tradition forward, with the same principle as always: we cook what the sea offers that morning.">Dal 1949, la cucina di Chez Black è rimasta nelle stesse mani di famiglia. Oggi è la terza generazione a portare avanti la tradizione, con lo stesso principio di sempre: si cucina quello che il mare offre quella mattina.</p>
+      <p class="chef-quote" data-i18n-en="&quot;The kitchen hasn't changed. Only the hands carrying it forward.&quot;">"La cucina non è cambiata. Solo le mani che la portano avanti."</p>
     </div>
   </div>
 </section>
@@ -442,25 +430,25 @@
 <section class="reviews" id="recensioni">
   <div class="wrap">
     <div class="reviews-head">
-      <span class="story-label">Cosa dicono</span>
-      <h2>I nostri ospiti</h2>
-      <p>Recensioni reali in arrivo — questi sono spazi segnaposto da sostituire con le recensioni vere di Google e TripAdvisor.</p>
+      <span class="story-label" data-i18n-en="What they say">Cosa dicono</span>
+      <h2 data-i18n-en="Our guests">I nostri ospiti</h2>
+      <p data-i18n-en="Real reviews coming soon — these are placeholder spaces to be replaced with real reviews from Google and TripAdvisor.">Recensioni reali in arrivo — questi sono spazi segnaposto da sostituire con le recensioni vere di Google e TripAdvisor.</p>
     </div>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-top"><div class="avatar"></div><div class="review-name">Nome Cognome<span>Google</span></div></div>
         <div class="stars-row">★★★★★</div>
-        <p class="review-quote">"Testo della recensione da inserire qui."</p>
+        <p class="review-quote" data-i18n-en="&quot;Review text to be added here.&quot;">"Testo della recensione da inserire qui."</p>
       </div>
       <div class="review-card">
         <div class="review-top"><div class="avatar"></div><div class="review-name">Nome Cognome<span>TripAdvisor</span></div></div>
         <div class="stars-row">★★★★★</div>
-        <p class="review-quote">"Testo della recensione da inserire qui."</p>
+        <p class="review-quote" data-i18n-en="&quot;Review text to be added here.&quot;">"Testo della recensione da inserire qui."</p>
       </div>
       <div class="review-card">
         <div class="review-top"><div class="avatar"></div><div class="review-name">Nome Cognome<span>Google</span></div></div>
         <div class="stars-row">★★★★★</div>
-        <p class="review-quote">"Testo della recensione da inserire qui."</p>
+        <p class="review-quote" data-i18n-en="&quot;Review text to be added here.&quot;">"Testo della recensione da inserire qui."</p>
       </div>
     </div>
   </div>
@@ -469,22 +457,21 @@
 <section class="contact" id="contatti">
   <div class="wrap contact-grid">
     <div>
-      <h2>Prenota il tuo tavolo</h2>
+      <h2 data-i18n-en="Book your table">Prenota il tuo tavolo</h2>
       <div class="info-rows">
-        <div class="info-row"><div class="k">indirizzo</div><div>Via del Brigantino, 19 — 84017 Positano (SA), Italia</div></div>
-        <div class="info-row"><div class="k">telefono</div><div>+39 089 875 036</div></div>
-        <div class="info-row"><div class="k">email</div><div>info@chezblack.it</div></div>
-        <div class="info-row"><div class="k">orari</div><div>Tutti i giorni, 12:00 – 24:00</div></div>
+        <div class="info-row"><div class="k" data-i18n-en="address">indirizzo</div><div>Via del Brigantino, 19 — 84017 Positano (SA), Italia</div></div>
+        <div class="info-row"><div class="k" data-i18n-en="phone">telefono</div><div>+39 089 875 036</div></div>
+        <div class="info-row"><div class="k" data-i18n-en="email">email</div><div>info@chezblack.it</div></div>
+        <div class="info-row"><div class="k" data-i18n-en="hours">orari</div><div data-i18n-en="Every day, 12:00 – 24:00">Tutti i giorni, 12:00 – 24:00</div></div>
       </div>
     </div>
     <div class="map-box">
-      <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <rect width="500" height="400" fill="none"/>
-        <path d="M0,260 Q125,235 250,258 T500,252 L500,400 L0,400 Z" fill="currentColor" opacity="0.06"/>
-        <circle cx="260" cy="230" r="9" fill="#E8722C" stroke="#F5EFE2" stroke-width="2"/>
-        <circle cx="260" cy="230" r="20" fill="none" stroke="#E8722C" stroke-width="1.5" opacity="0.5"/>
-      </svg>
-      <div class="map-pin-label">Via del Brigantino, 19</div>
+      <iframe
+        src="https://www.google.com/maps?q=Via+del+Brigantino,19,Positano,SA,Italy&output=embed"
+        width="100%" height="100%" style="border:0; min-height:340px;"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Chez Black su Google Maps">
+      </iframe>
     </div>
   </div>
 </section>
@@ -494,16 +481,16 @@
     <div class="footer-top">
       <div class="footer-brand">Chez Black<small>Via del Brigantino, 19 — Positano (SA)</small></div>
       <div class="links">
-        <a href="#storia">La Storia</a>
-        <a href="#menu">Menù</a>
-        <a href="#galleria">Galleria</a>
-        <a href="#recensioni">Recensioni</a>
-        <a href="#contatti">Contatti</a>
+        <a href="#storia" data-i18n-en="Our Story">La Storia</a>
+        <a href="#menu" data-i18n-en="Menu">Menù</a>
+        <a href="#galleria" data-i18n-en="Gallery">Galleria</a>
+        <a href="#recensioni" data-i18n-en="Reviews">Recensioni</a>
+        <a href="#contatti" data-i18n-en="Contact">Contatti</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© Chez Black — Positano dal 1949</span>
-      <span>Sito concept — redesign</span>
+      <span data-i18n-en="Concept site — redesign">Sito concept — redesign</span>
     </div>
   </div>
 </footer>
@@ -514,6 +501,20 @@
   const navlinks = document.getElementById('navlinks');
   toggle.addEventListener('click', () => navlinks.classList.toggle('open'));
   navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+  // Language switcher (IT default / EN)
+  const langBtns = document.querySelectorAll('.lang-btn');
+  const i18nEls = document.querySelectorAll('[data-i18n-en]');
+  i18nEls.forEach(el => { el.dataset.i18nIt = el.innerHTML; });
+  langBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      langBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const lang = btn.dataset.lang;
+      document.documentElement.lang = lang;
+      i18nEls.forEach(el => { el.innerHTML = lang === 'en' ? el.dataset.i18nEn : el.dataset.i18nIt; });
+    });
+  });
 
   // Light / dark theme toggle
   const themeToggle = document.getElementById('themeToggle');
