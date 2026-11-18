@@ -3,325 +3,218 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chez Black — Positano dal 1949</title>
+<title>Onda Blu — Ristorante di mare a Cala Serena</title>
+<meta name="description" content="Onda Blu, ristorante di pesce sul mare di Cala Serena. Prenota il tuo tavolo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#FFFFFF;
     --bg-alt:#F6F3EA;
-    --card:#FFFFFF;
-    --card-line: rgba(20,20,20,0.1);
-    --cream:#17150F;
+    --ink:#17150F;
     --muted:#6b6759;
+    --line:rgba(20,20,20,0.1);
     --orange:#E8722C;
     --orange-dk:#C25A1E;
     --gold:#C98A1E;
-    --max-w:1180px;
+    --max-w:1120px;
   }
-
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
-
-  body{
-    background:var(--bg);
-    color:var(--cream);
-    font-family:'Work Sans', sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-
-  h1,h2,h3,.serif{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+  body{background:var(--bg); color:var(--ink); font-family:'Work Sans',sans-serif; font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em;}
   a{color:inherit; text-decoration:none;}
-  img,svg{max-width:100%; display:block;}
-  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 32px;}
+  img{max-width:100%; display:block;}
   button{font-family:inherit; cursor:pointer;}
+  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 28px;}
   .accent{color:var(--orange);}
-
+  .label{font-size:0.85rem; color:var(--gold); font-weight:600;}
+  section{padding:110px 0;}
+  h2.title{font-size:clamp(2rem,4vw,2.9rem); margin-top:12px; line-height:1.12;}
   @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
 
-  /* ================= NAV ================= */
-  header{position:sticky; top:0; z-index:60; background:rgba(255,255,255,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--card-line);}
-  nav.wrap{display:flex; align-items:center; justify-content:space-between; height:80px;}
-  .brand{display:flex; align-items:center;}
-  .brand img{height:40px; width:auto; display:block;}
-  .navlinks{display:flex; align-items:center; gap:34px; font-size:0.92rem;}
-  .navlinks a:not(.nav-cta){position:relative; padding:4px 0; color:var(--muted);}
-  .navlinks a:not(.nav-cta)::after{content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--orange); transition:width .25s ease;}
-  .navlinks a:not(.nav-cta):hover{color:var(--cream);}
-  .navlinks a:not(.nav-cta):hover::after{width:100%;}
-  .nav-cta{background:var(--orange); color:var(--bg); padding:11px 24px; border-radius:30px; font-size:0.9rem; font-weight:600; transition:background .2s;}
-  .nav-cta:hover{background:var(--gold);}
-  .menu-toggle{display:none; background:none; border:none; font-size:1.6rem; color:var(--cream);}
-  .lang-switch{display:flex; align-items:center; gap:2px; background:var(--bg-alt); border:1px solid var(--card-line); border-radius:30px; padding:3px; margin-left:14px;}
-  .lang-btn{background:none; border:none; padding:7px 14px; border-radius:30px; font-size:0.8rem; font-weight:600; color:var(--muted); letter-spacing:0.03em;}
-  .lang-btn.active{background:var(--orange); color:#FFFFFF;}
-
-  @media (max-width:860px){
-    .navlinks{position:fixed; inset:80px 0 auto 0; background:var(--bg); flex-direction:column; align-items:stretch; gap:0; padding:8px 32px 24px; border-bottom:1px solid var(--card-line); transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease;}
-    .navlinks.open{opacity:1; transform:translateY(0); pointer-events:auto;}
-    .navlinks a:not(.nav-cta){padding:14px 0; border-bottom:1px solid var(--card-line);}
-    .navlinks .nav-cta{margin-top:16px; text-align:center;}
-    header .wrap > .nav-cta{display:none;}
+  /* NAV */
+  header{position:sticky; top:0; z-index:60; background:rgba(255,255,255,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  nav{display:flex; align-items:center; justify-content:space-between; height:76px;}
+  .brand{font-family:'Fraunces',serif; font-size:1.5rem; font-weight:700;}
+  .brand span{color:var(--orange);}
+  .navlinks{display:flex; align-items:center; gap:32px; font-size:0.93rem;}
+  .navlinks a:not(.btn){color:var(--muted);}
+  .navlinks a:not(.btn):hover{color:var(--ink);}
+  .right{display:flex; align-items:center; gap:12px;}
+  .lang-switch{display:flex; background:var(--bg-alt); border:1px solid var(--line); border-radius:30px; padding:3px;}
+  .lang-btn{background:none; border:none; padding:6px 13px; border-radius:30px; font-size:0.78rem; font-weight:600; color:var(--muted);}
+  .lang-btn.active{background:var(--orange); color:#fff;}
+  .menu-toggle{display:none; background:none; border:none; font-size:1.6rem; color:var(--ink);}
+  @media (max-width:820px){
+    .navlinks{position:fixed; inset:76px 0 auto 0; background:#fff; flex-direction:column; align-items:stretch; gap:0; padding:6px 28px 22px; border-bottom:1px solid var(--line); opacity:0; transform:translateY(-8px); pointer-events:none; transition:all .2s;}
+    .navlinks.open{opacity:1; transform:none; pointer-events:auto;}
+    .navlinks a:not(.btn){padding:14px 0; border-bottom:1px solid var(--line);}
+    .navlinks .btn{margin-top:16px;}
     .menu-toggle{display:block;}
+    .right .btn{display:none;}
   }
-  @media (min-width:861px){ nav.wrap > .nav-cta{display:none;} }
 
-  /* ================= HERO ================= */
-  .hero{position:relative; min-height:92vh; display:flex; align-items:flex-end; overflow:hidden;}
-  .hero-bg{position:absolute; inset:0; z-index:0;}
+  /* BUTTONS */
+  .btn{display:inline-block; padding:14px 28px; font-size:0.93rem; font-weight:600; border-radius:30px; border:1.5px solid transparent; transition:all .2s; text-align:center;}
+  .btn-primary{background:var(--orange); color:#fff;}
+  .btn-primary:hover{background:var(--orange-dk); transform:translateY(-1px);}
+  .btn-ghost{border-color:rgba(255,255,255,0.7); color:#fff;}
+  .btn-ghost:hover{background:rgba(255,255,255,0.15);}
+  .btn-sm{padding:10px 22px; font-size:0.88rem;}
+
+  /* HERO */
+  .hero{position:relative; min-height:88vh; display:flex; align-items:flex-end; padding:0; overflow:hidden; color:#fff;}
+  .hero-bg{position:absolute; inset:0;}
   .hero-bg img{width:100%; height:100%; object-fit:cover;}
-  .hero-scrim{position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(40,24,14,0.2) 0%, rgba(40,24,14,0.4) 45%, rgba(40,24,14,0.92) 100%);}
-  .hero-content{position:relative; z-index:2; padding:120px 32px 90px; max-width:820px;}
-  .hero-badge{display:inline-flex; align-items:center; gap:12px; background:rgba(20,20,20,0.4); backdrop-filter:blur(6px); border:1px solid rgba(245,239,226,0.25); color:#F5EFE2; font-size:0.75rem; letter-spacing:0.14em; padding:10px 20px; border-radius:30px; text-transform:uppercase;}
-  .hero-badge::before{content:''; width:22px; height:1px; background:#F5EFE2; display:inline-block;}
-  .hero h1{font-size:clamp(2.5rem,6vw,4.4rem); line-height:1.08; margin-top:26px; color:#F5EFE2;}
-  .hero h1 .accent-italic{font-style:italic; color:var(--orange); font-weight:500;}
-  .hero p.lede{margin-top:24px; max-width:54ch; font-size:1.05rem; color:rgba(245,239,226,0.82);}
-  .hero-actions{margin-top:36px; display:flex; flex-direction:column; align-items:flex-start; gap:16px; max-width:340px;}
+  .hero-scrim{position:absolute; inset:0; background:linear-gradient(180deg, rgba(30,20,12,0.2) 0%, rgba(30,20,12,0.45) 45%, rgba(30,20,12,0.9) 100%);}
+  .hero-content{position:relative; z-index:2; padding:120px 28px 80px; max-width:800px;}
+  .hero-badge{display:inline-block; font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.35); background:rgba(30,20,12,0.35); backdrop-filter:blur(6px); padding:9px 18px; border-radius:30px;}
+  .hero h1{font-size:clamp(2.5rem,6vw,4.3rem); line-height:1.07; margin-top:24px;}
+  .hero h1 em{font-style:italic; color:#F4A261; font-weight:500;}
+  .hero p{margin-top:22px; max-width:52ch; font-size:1.05rem; color:rgba(255,255,255,0.88);}
+  .hero-actions{margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;}
+  @media (max-width:560px){ .hero-actions{flex-direction:column; align-items:stretch; max-width:320px;} }
 
-  .btn{display:inline-block; padding:16px 30px; font-size:0.95rem; font-weight:600; border-radius:30px; border:1.5px solid transparent; transition:all .2s; text-align:center;}
-  .btn-primary{background:var(--orange); color:#FFFFFF;}
-  .btn-primary:hover{background:var(--gold); transform:translateY(-1px);}
-  .btn-ghost{border-color:rgba(232,114,44,0.6); color:var(--orange); background:transparent;}
-  .btn-ghost:hover{background:rgba(232,114,44,0.1); border-color:var(--orange);}
-  .hero-actions .btn{width:100%;}
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;}
+  .about-photo{border-radius:24px; overflow:hidden; aspect-ratio:0.88; background:var(--bg-alt); border:1px solid var(--line);}
+  .about-photo img{width:100%; height:100%; object-fit:cover;}
+  .about p{margin-top:20px; color:var(--muted); max-width:52ch;}
+  .stats{display:flex; gap:44px; margin-top:34px;}
+  .stat b{font-family:'Fraunces',serif; font-size:2.2rem; color:var(--orange); display:block; line-height:1.1;}
+  .stat span{font-size:0.85rem; color:var(--muted);}
+  @media (max-width:820px){ .about-grid{grid-template-columns:1fr; gap:36px;} .stats{gap:30px;} }
 
-  @media (min-width:600px){
-    .hero-actions{flex-direction:row; max-width:none;}
-    .hero-actions .btn{width:auto;}
-  }
-
-  /* ================= TICKER ================= */
-  .ticker{background:var(--bg-alt); border-top:1px solid var(--card-line); border-bottom:1px solid var(--card-line); overflow:hidden; white-space:nowrap;}
-  .ticker-track{display:inline-flex; gap:56px; padding:14px 0; animation:scrollTicker 32s linear infinite;}
-  .ticker-track span{font-family:'Fraunces', serif; font-style:italic; font-size:1rem; flex-shrink:0; color:var(--orange);}
-  .ticker-track span::after{content:'—'; margin-left:56px; opacity:.4; color:var(--muted);}
-  @keyframes scrollTicker{from{transform:translateX(0);} to{transform:translateX(-50%);}}
-
-  /* ================= STORY ================= */
-  .story{padding:130px 0; background:var(--bg);}
-  .story-head{margin-bottom:64px;}
-  .story-label{font-size:0.85rem; color:var(--gold); font-weight:600;}
-  .story h2{font-size:clamp(2.1rem,4vw,3rem); margin-top:14px; max-width:18ch;}
-  .story-grid{display:grid; grid-template-columns:0.55fr 1.45fr; gap:60px;}
-  .story-sticky{position:sticky; top:120px; align-self:start; height:fit-content;}
-  .story-year{font-family:'Fraunces', serif; font-size:6rem; line-height:1; color:var(--card); -webkit-text-stroke:1.5px var(--muted); transition:all .35s ease;}
-  .story-year.active{color:var(--orange); -webkit-text-stroke:0;}
-  .story-bar{width:2px; height:60px; background:var(--card-line); margin-top:20px; position:relative; overflow:hidden;}
-  .story-bar::after{content:''; position:absolute; top:0; left:0; width:100%; height:0%; background:var(--orange); transition:height .3s ease;}
-  .story-bar.active::after{height:100%;}
-  .story-entries{display:flex; flex-direction:column; gap:120px;}
-  .story-entry{max-width:56ch;}
-  .story-entry .tag{font-size:0.82rem; color:var(--gold); font-weight:600; margin-bottom:10px;}
-  .story-entry h3{font-size:1.6rem; margin-bottom:14px;}
-  .story-entry p{color:var(--muted); font-size:1.02rem;}
-  .story-entry blockquote{font-family:'Fraunces', serif; font-style:italic; font-size:1.2rem; color:var(--orange); margin-top:18px; max-width:36ch; line-height:1.5;}
-
-  @media (max-width:860px){
-    .story-grid{grid-template-columns:1fr;}
-    .story-sticky{position:static; display:flex; align-items:center; gap:16px;}
-    .story-bar{width:60px; height:2px; margin-top:0;}
-    .story-entries{gap:70px;}
-  }
-
-  /* ================= MENU (cards) ================= */
-  .menu{padding:130px 0; background:var(--bg-alt);}
-  .menu-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:48px; flex-wrap:wrap;}
-  .menu-head h2{font-size:clamp(2.1rem,4vw,3rem); max-width:16ch;}
-  .menu-head p{max-width:38ch; color:var(--muted);}
-  .tabs{display:flex; gap:10px; margin-bottom:44px; flex-wrap:wrap;}
-  .tab-btn{background:var(--card); border:1px solid var(--card-line); padding:11px 22px; border-radius:30px; font-size:0.92rem; color:var(--muted); font-weight:500; transition:all .2s;}
-  .tab-btn.active{background:var(--orange); color:var(--bg); border-color:var(--orange);}
-  .dish-grid{display:none; grid-template-columns:repeat(3, 1fr); gap:24px;}
-  .dish-grid.active{display:grid; animation:fadeQuick .35s ease;}
-  @keyframes fadeQuick{from{opacity:0;} to{opacity:1;}}
-  .dish-card{background:var(--card); border:1px solid var(--card-line); border-radius:18px; padding:20px; display:flex; flex-direction:column; align-items:center; text-align:center; transition:transform .25s ease, border-color .25s ease;}
-  .dish-card:hover{transform:translateY(-4px); border-color:rgba(232,114,44,0.4);}
-  .dish-photo{width:120px; height:120px; border-radius:50%; overflow:hidden; background:var(--bg-alt); margin-bottom:16px; border:3px solid var(--bg-alt);}
+  /* MENU */
+  .menu{background:var(--bg-alt);}
+  .menu-head{max-width:560px; margin-bottom:48px;}
+  .menu-head p{margin-top:14px; color:var(--muted);}
+  .dishes{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .dish{background:#fff; border:1px solid var(--line); border-radius:20px; padding:22px 20px 24px; text-align:center; box-shadow:0 2px 14px rgba(20,20,20,0.04); transition:transform .25s;}
+  .dish:hover{transform:translateY(-4px);}
+  .dish-photo{width:118px; height:118px; border-radius:50%; overflow:hidden; margin:0 auto 16px; background:var(--bg-alt);}
   .dish-photo img{width:100%; height:100%; object-fit:cover;}
-  .dish-card h4{font-family:'Fraunces', serif; font-size:1.1rem; font-weight:600;}
-  .dish-card p{font-size:0.85rem; color:var(--muted); margin-top:8px; min-height:42px;}
-  .dish-price{margin-top:14px; background:rgba(232,114,44,0.12); color:var(--orange); font-family:'Fraunces', serif; font-weight:600; padding:6px 18px; border-radius:30px; font-size:0.95rem;}
+  .dish h4{font-size:1.08rem;}
+  .dish p{font-size:0.85rem; color:var(--muted); margin-top:8px; min-height:44px;}
+  .price{display:inline-block; margin-top:14px; background:rgba(232,114,44,0.12); color:var(--orange); font-family:'Fraunces',serif; font-weight:600; padding:5px 16px; border-radius:30px;}
+  .menu-note{margin-top:34px; font-size:0.9rem; color:var(--muted); text-align:center;}
+  @media (max-width:980px){ .dishes{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .dishes{grid-template-columns:1fr;} }
 
-  @media (max-width:860px){ .dish-grid{grid-template-columns:repeat(2, 1fr);} }
-  @media (max-width:560px){ .dish-grid{grid-template-columns:1fr;} }
-
-  /* ================= GALLERY ================= */
-  .gallery{padding:130px 0; background:var(--bg);}
-  .gallery-head{margin-bottom:44px;}
-  .gallery-head h2{font-size:clamp(2.1rem,4vw,3rem); max-width:16ch;}
-  .gallery-head p{margin-top:14px; color:var(--muted); max-width:44ch;}
-  .gallery-grid{display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px; -webkit-overflow-scrolling:touch;}
-  .gallery-grid::-webkit-scrollbar{height:6px;}
-  .gallery-grid::-webkit-scrollbar-thumb{background:var(--card-line); border-radius:3px;}
-  .gallery-grid button{flex:0 0 240px; height:280px; scroll-snap-align:start; padding:0; border:none; background:var(--card); overflow:hidden; position:relative; border-radius:14px;}
-  .gallery-grid img{width:100%; height:100%; object-fit:cover; transition:transform .35s ease;}
-  .gallery-grid button:hover img{transform:scale(1.05);}
-  @media (max-width:860px){ .gallery-grid button{flex:0 0 200px; height:250px;} }
-
-  /* Lightbox */
-  .lightbox{position:fixed; inset:0; background:rgba(10,8,5,0.97); z-index:100; display:none; align-items:center; justify-content:center; touch-action:pan-y;}
+  /* GALLERY */
+  .gallery-head{margin-bottom:36px;}
+  .strip{display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px; -webkit-overflow-scrolling:touch;}
+  .strip::-webkit-scrollbar{height:6px;}
+  .strip::-webkit-scrollbar-thumb{background:var(--line); border-radius:3px;}
+  .strip button{flex:0 0 240px; height:290px; border:none; padding:0; border-radius:14px; overflow:hidden; background:var(--bg-alt); scroll-snap-align:start;}
+  .strip img{width:100%; height:100%; object-fit:cover; transition:transform .35s;}
+  .strip button:hover img{transform:scale(1.05);}
+  @media (max-width:820px){ .strip button{flex-basis:200px; height:250px;} }
+  .lightbox{position:fixed; inset:0; background:rgba(255,255,255,0.98); z-index:100; display:none; align-items:center; justify-content:center; touch-action:pan-y;}
   .lightbox.open{display:flex;}
-  .lightbox img{max-width:90vw; max-height:80vh; object-fit:contain; user-select:none; border-radius:8px;}
-  .lightbox-close{position:absolute; top:24px; right:28px; background:none; border:none; color:var(--cream); font-size:2rem; line-height:1;}
-  .lightbox-nav{position:absolute; top:50%; transform:translateY(-50%); background:none; border:none; color:var(--cream); font-size:2.4rem; padding:10px 16px; opacity:0.8;}
-  .lightbox-nav:hover{opacity:1;}
-  .lightbox-prev{left:8px;}
-  .lightbox-next{right:8px;}
-  .lightbox-count{position:absolute; bottom:24px; left:50%; transform:translateX(-50%); color:var(--muted); font-size:0.85rem; letter-spacing:0.05em;}
-  @media (max-width:600px){ .lightbox-nav{font-size:2rem; padding:8px 10px;} }
+  .lightbox img{max-width:92vw; max-height:80vh; object-fit:contain; border-radius:8px; user-select:none;}
+  .lb-btn{position:absolute; background:none; border:none; color:var(--ink); line-height:1;}
+  .lb-close{top:20px; right:24px; font-size:2rem;}
+  .lb-nav{top:50%; transform:translateY(-50%); font-size:2.6rem; padding:10px 14px;}
+  .lb-prev{left:6px;} .lb-next{right:6px;}
+  .lb-count{position:absolute; bottom:22px; left:50%; transform:translateX(-50%); color:var(--muted); font-size:0.85rem;}
 
-  /* ================= EVENTS ================= */
-  .events{padding:130px 0; background:var(--bg-alt);}
-  .events-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center;}
-  .events h2{font-size:clamp(2.1rem,4vw,3rem); max-width:12ch;}
-  .events p.lede2{margin-top:20px; color:var(--muted); max-width:48ch;}
-  .events-list{display:flex; flex-direction:column;}
-  .events-list div{padding:22px 0; border-bottom:1px solid var(--card-line); display:flex; justify-content:space-between; align-items:center; font-size:1.05rem;}
-  .events-list div span:last-child{color:var(--orange); font-family:'Fraunces', serif;}
-  .stat-row{display:flex; gap:50px; margin-top:44px;}
-  .stat .n{font-family:'Fraunces', serif; font-size:2.6rem; color:var(--orange);}
-  .stat .l{font-size:0.85rem; color:var(--muted); margin-top:4px;}
-
-  @media (max-width:860px){.events-grid{grid-template-columns:1fr; gap:38px;} .stat-row{gap:34px;}}
-
-  /* ================= CHEF ================= */
-  .chef{padding:130px 0; background:var(--bg); position:relative; overflow:hidden;}
-  .chef::before{content:''; position:absolute; bottom:-160px; left:-160px; width:480px; height:480px; background:radial-gradient(circle, rgba(232,114,44,0.28) 0%, rgba(232,114,44,0) 70%); pointer-events:none;}
-  .chef-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:center; position:relative; z-index:2;}
-  .chef-photo{position:relative; width:100%; max-width:380px; aspect-ratio:0.85; border-radius:24px; overflow:hidden; background:var(--card); border:1px solid var(--card-line);}
-  .chef-photo img{width:100%; height:100%; object-fit:cover;}
-  .chef-label{font-size:0.85rem; color:var(--gold); font-weight:600;}
-  .chef h2{font-size:clamp(2.1rem,4vw,3rem); margin-top:14px; max-width:16ch;}
-  .chef p{margin-top:20px; color:var(--muted); max-width:52ch; font-size:1.02rem;}
-  .chef-quote{font-family:'Fraunces', serif; font-style:italic; font-size:1.25rem; color:var(--orange); margin-top:24px; max-width:40ch;}
-
-  @media (max-width:860px){ .chef-grid{grid-template-columns:1fr;} .chef-photo{margin:0 auto;} }
-
-  /* ================= REVIEWS ================= */
-  .reviews{padding:130px 0; background:var(--bg-alt);}
-  .reviews-head{margin-bottom:52px; text-align:center;}
-  .reviews-head .story-label{display:block; text-align:center;}
-  .reviews-head h2{font-size:clamp(2.1rem,4vw,3rem); margin-top:14px;}
-  .reviews-head p{margin-top:14px; color:var(--muted); font-size:0.92rem; max-width:52ch; margin-left:auto; margin-right:auto;}
-  .reviews-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;}
-  .review-card{background:var(--card); border:1px solid var(--card-line); padding:30px; border-radius:18px;}
+  /* REVIEWS */
+  .reviews{background:var(--bg-alt);}
+  .reviews-head{text-align:center; margin-bottom:46px;}
+  .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .review{background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px; box-shadow:0 2px 14px rgba(20,20,20,0.04);}
   .review-top{display:flex; align-items:center; gap:12px;}
-  .avatar{width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg, var(--orange), var(--gold)); flex-shrink:0;}
-  .review-name{font-weight:600; font-size:0.95rem;}
-  .review-name span{display:block; font-weight:400; font-size:0.78rem; color:var(--muted); margin-top:2px;}
-  .stars-row{color:var(--gold); font-size:0.85rem; letter-spacing:2px; margin-top:16px;}
-  .review-quote{font-family:'Fraunces', serif; font-style:italic; font-size:1.02rem; color:var(--cream); margin-top:14px; line-height:1.55;}
+  .avatar{width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--orange),#F4A261);}
+  .review-name{font-weight:600; font-size:0.93rem; line-height:1.3;}
+  .review-name span{display:block; font-weight:400; font-size:0.78rem; color:var(--muted);}
+  .stars{color:var(--gold); letter-spacing:2px; margin-top:14px; font-size:0.85rem;}
+  .review p{font-family:'Fraunces',serif; font-style:italic; margin-top:12px; line-height:1.55;}
+  @media (max-width:820px){ .reviews-grid{grid-template-columns:1fr;} }
 
-  @media (max-width:860px){ .reviews-grid{grid-template-columns:1fr;} }
+  /* CONTACT */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+  .rows{margin-top:28px;}
+  .row{display:grid; grid-template-columns:100px 1fr; gap:14px; padding:16px 0; border-top:1px solid var(--line); font-size:0.97rem;}
+  .row:last-child{border-bottom:1px solid var(--line);}
+  .row .k{color:var(--muted); font-size:0.85rem;}
+  .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;}
+  .btn-outline{border-color:var(--line); color:var(--ink);}
+  .btn-outline:hover{border-color:var(--orange); color:var(--orange);}
+  .row div:last-child{overflow-wrap:anywhere;}
 
-  /* ================= CONTACT ================= */
-  .contact{padding:130px 0 100px; background:var(--bg);}
-  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px;}
-  .contact h2{font-size:clamp(2.1rem,4vw,3rem);}
-  .info-rows{margin-top:32px;}
-  .info-row{padding:18px 0; border-top:1px solid var(--card-line); display:grid; grid-template-columns:100px 1fr; gap:16px; font-size:0.98rem;}
-  .info-row:last-child{border-bottom:1px solid var(--card-line);}
-  .info-row .k{color:var(--muted); font-size:0.85rem;}
-  .map-box{background:var(--card); border:1px solid var(--card-line); border-radius:18px; min-height:340px; position:relative; overflow:hidden;}
-  .map-box svg{width:100%; height:100%;}
-  .map-pin-label{position:absolute; bottom:22px; left:22px; color:var(--cream); font-family:'Fraunces', serif; font-size:1rem; background:rgba(20,16,9,0.75); padding:8px 14px; border-radius:8px; border:1px solid var(--card-line);}
+  .booking{margin-top:64px; background:var(--bg-alt); border:1px solid var(--line); border-radius:22px; padding:36px;}
+  .booking h3{font-size:1.6rem;}
+  .booking-sub{color:var(--muted); margin-top:6px; margin-bottom:26px;}
+  .form-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;}
+  .form-grid label{display:flex; flex-direction:column; gap:6px; font-size:0.85rem; color:var(--muted); font-weight:500;}
+  .form-grid .full{grid-column:1 / -1;}
+  .form-grid input, .form-grid select, .form-grid textarea{width:100%; font-family:inherit; font-size:16px; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:12px; padding:13px 14px;}
+  .form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus{outline:2px solid rgba(232,114,44,0.45); border-color:var(--orange);}
+  .form-msg{margin-top:18px; color:var(--orange-dk); font-weight:500;}
+  @media (max-width:560px){
+    .booking{padding:24px 18px; margin-top:44px;}
+    .form-grid{grid-template-columns:1fr;}
+    .cta-row .btn{flex:1 1 100%;}
+  }
+  .map{border:1px solid var(--line); border-radius:18px; overflow:hidden; min-height:360px; background:var(--bg-alt);}
+  .map iframe{width:100%; height:100%; min-height:360px; border:0;}
+  @media (max-width:820px){ .contact-grid{grid-template-columns:1fr; gap:34px;} }
 
-  @media (max-width:860px){.contact-grid{grid-template-columns:1fr; gap:38px;}}
-
-  /* ================= FOOTER ================= */
-  footer{background:var(--bg-alt); color:var(--muted); padding:56px 0 40px; border-top:1px solid var(--card-line);}
-  .footer-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:30px; padding-bottom:40px; border-bottom:1px solid var(--card-line);}
-  .footer-brand{font-family:'Fraunces', serif; color:var(--cream); font-size:1.3rem;}
-  .footer-brand small{display:block; font-family:'Work Sans',sans-serif; font-size:0.78rem; color:var(--muted); margin-top:6px; font-weight:400;}
-  footer .links{display:flex; gap:30px; font-size:0.9rem;}
-  footer .links a:hover{color:var(--cream);}
-  .footer-bottom{padding-top:24px; font-size:0.82rem; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  /* FOOTER */
+  footer{background:var(--bg-alt); border-top:1px solid var(--line); padding:34px 0; font-size:0.85rem; color:var(--muted);}
+  .foot{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
 </style>
 </head>
 <body>
 
 <header>
   <nav class="wrap">
-    <a href="#" class="brand"><img src="logo.jpg" alt="Chez Black"></a>
+    <a href="#" class="brand">Onda<span> Blu</span></a>
     <div class="navlinks" id="navlinks">
-      <a href="#storia" data-i18n-en="Our Story">La Storia</a>
-      <a href="#menu" data-i18n-en="Menu">Menù</a>
-      <a href="#galleria" data-i18n-en="Gallery">Galleria</a>
-      <a href="#celebrita" data-i18n-en="Celebrities">Celebrità</a>
-      <a href="#eventi" data-i18n-en="Events">Eventi</a>
-      <a href="#chef" data-i18n-en="The Chef">Lo Chef</a>
-      <a href="#recensioni" data-i18n-en="Reviews">Recensioni</a>
-      <a href="#contatti" data-i18n-en="Contact">Contatti</a>
-      <a href="#contatti" class="nav-cta" data-i18n-en="Book a Table">Prenota</a>
+      <a href="#chi-siamo" data-en="About">Chi siamo</a>
+      <a href="#menu" data-en="Menu">Menù</a>
+      <a href="#galleria" data-en="Gallery">Galleria</a>
+      <a href="#recensioni" data-en="Reviews">Recensioni</a>
+      <a href="#contatti" class="btn btn-primary btn-sm" data-en="Book a Table">Prenota</a>
     </div>
-    <a href="#contatti" class="btn nav-cta" data-i18n-en="Book a Table">Prenota</a>
-    <div class="lang-switch">
-      <button class="lang-btn active" data-lang="it">IT</button>
-      <button class="lang-btn" data-lang="en">EN</button>
+    <div class="right">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
     </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu">☰</button>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-bg"><img src="hero1.jpg" alt="Chez Black, Positano"></div>
+  <div class="hero-bg"><img src="hero1.jpg" alt="Onda Blu"></div>
   <div class="hero-scrim"></div>
   <div class="hero-content">
-    <div class="hero-badge" data-i18n-en="— Positano, Salerno · since 1949">— Positano, Salerno · dal 1949</div>
-    <h1 data-i18n-en="Seafood cuisine, &lt;span class=&#39;accent-italic&#39;&gt;terrace&lt;/span&gt; on the harbor. Three generations, &lt;span class=&#39;accent-italic&#39;&gt;one home.&lt;/span&gt;">Cucina di mare, <span class="accent-italic">terrazza</span> sul porto. Tre generazioni, <span class="accent-italic">un'unica casa.</span></h1>
-    <p class="lede" data-i18n-en="Chez Black was born from the courage of a fishing family and still brings to the table what the sea offers each morning — the same recipe, the same beach, for seventy-five years.">Chez Black nasce dal coraggio di una famiglia di pescatori e porta ancora oggi in tavola quello che il mare offre ogni mattina — la stessa ricetta, la stessa spiaggia, da settantacinque anni.</p>
+    <div class="hero-badge" data-en="Cala Serena · Seafood restaurant">Cala Serena · Ristorante di mare</div>
+    <h1 data-en="Fresh fish, a <em>sea view</em> and a table waiting for you.">Pesce fresco, <em>vista mare</em> e un tavolo che ti aspetta.</h1>
+    <p data-en="Onda Blu serves what the sea brings each morning, right on the waterfront. Lunch, dinner and long evenings with friends.">Onda Blu porta in tavola quello che il mare offre ogni mattina, proprio sul lungomare. Pranzi, cene e serate che si allungano.</p>
     <div class="hero-actions">
-      <a href="#contatti" class="btn btn-primary" data-i18n-en="Book a Table">Prenota un tavolo</a>
-      <a href="#storia" class="btn btn-ghost" data-i18n-en="Our Story">La nostra storia</a>
+      <a href="#contatti" class="btn btn-primary" data-en="Book a Table">Prenota un tavolo</a>
+      <a href="#menu" class="btn btn-ghost" data-en="See the Menu">Guarda il menù</a>
     </div>
   </div>
 </section>
 
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Ricci di mare</span><span>Paccheri di Gragnano</span><span>Vongole veraci</span><span>Limone della costiera</span><span>Pescato del giorno</span>
-    <span>Ricci di mare</span><span>Paccheri di Gragnano</span><span>Vongole veraci</span><span>Limone della costiera</span><span>Pescato del giorno</span>
-  </div>
-</div>
-
-<section class="story" id="storia">
-  <div class="wrap">
-    <div class="story-head">
-      <div class="story-label" data-i18n-en="Seventy-five years">Settantacinque anni</div>
-      <h2 data-i18n-en="Three generations on the same beach">Tre generazioni sulla stessa spiaggia</h2>
-    </div>
-    <div class="story-grid">
-      <div class="story-sticky">
-        <div class="story-year" data-year="1949">1949</div>
-        <div class="story-bar"></div>
-      </div>
-      <div class="story-entries">
-        <div class="story-entry" data-story-year="1949">
-          <div class="tag">Gli inizi</div>
-          <h3>Un chiosco sulla spiaggia</h3>
-          <p>Positano non era ancora la meta che conosciamo oggi. Chez Black nasce come un piccolo punto di ristoro sulla spiaggia, tra le barche dei pescatori, servendo quello che il mare offriva quella mattina.</p>
-        </div>
-        <div class="story-entry" data-story-year="1970">
-          <div class="tag">La crescita</div>
-          <h3>Il tema della nave prende forma</h3>
-          <p>Con l'arrivo del turismo internazionale sulla Costiera, la famiglia trasforma il locale: oblò al posto delle porte, ottoni, sale che ricordano il ponte di una nave. Un'identità che non è più cambiata.</p>
-        </div>
-        <div class="story-entry" data-story-year="2000">
-          <div class="tag">Il riconoscimento</div>
-          <h3>Un punto fermo della Costiera</h3>
-          <p>Chez Black diventa una tappa fissa per chi visita Positano: ospiti abituali, celebrazioni importanti, matrimoni in riva al mare. La ricetta resta la stessa di sempre.</p>
-        </div>
-        <div class="story-entry" data-story-year="2024">
-          <div class="tag">Oggi</div>
-          <h3>La terza generazione in cucina</h3>
-          <p>Oggi è la famiglia Cinque a portare avanti Chez Black, con lo stesso principio del 1949: si cucina quello che arriva la mattina, e si accoglie chi arriva come si accoglierebbe in casa propria.</p>
-          <blockquote>"Settantacinque anni dopo, l'unica cosa che è davvero cambiata è il numero dei tavoli."</blockquote>
-        </div>
+<section class="about" id="chi-siamo">
+  <div class="wrap about-grid">
+    <div class="about-photo"><img src="hero.jpg" alt="Onda Blu, la sala"></div>
+    <div>
+      <div class="label" data-en="About us">Chi siamo</div>
+      <h2 class="title" data-en="A family kitchen, <span class='accent'>by the sea</span>">Una cucina di famiglia, <span class="accent">sul mare</span></h2>
+      <p data-en="For three generations our family has cooked what the sea offers that morning. No complicated recipes — just fresh fish, local ingredients and a warm welcome.">Da tre generazioni la nostra famiglia cucina quello che il mare offre quella mattina. Niente ricette complicate: pesce fresco, ingredienti locali e un'accoglienza calorosa.</p>
+      <div class="stats">
+        <div class="stat"><b>70+</b><span data-en="years of history">anni di storia</span></div>
+        <div class="stat"><b>3</b><span data-en="generations">generazioni</span></div>
+        <div class="stat"><b>40+</b><span data-en="dishes on the menu">piatti in menù</span></div>
       </div>
     </div>
   </div>
@@ -330,148 +223,59 @@
 <section class="menu" id="menu">
   <div class="wrap">
     <div class="menu-head">
-      <h2 data-i18n-en="Our most loved &lt;span class=&#39;accent&#39;&gt;dishes&lt;/span&gt;">I nostri piatti <span class="accent">più amati</span></h2>
-      <p data-i18n-en="A selection of our historic dishes — the full menu, with over forty dishes, is available in the dining room.">Una selezione dei piatti storici — il menù completo, con oltre quaranta portate, è disponibile in sala.</p>
+      <div class="label" data-en="Signature dishes">I nostri piatti</div>
+      <h2 class="title" data-en="Loved by our <span class='accent'>guests</span>">Quelli che i clienti <span class="accent">amano di più</span></h2>
+      <p data-en="A taste of the menu. The full list is available at the restaurant.">Un assaggio del nostro menù. L'elenco completo è disponibile in sala.</p>
     </div>
-    <div class="tabs" role="tablist">
-      <button class="tab-btn active" data-tab="antipasti" data-i18n-en="Starters">Antipasti</button>
-      <button class="tab-btn" data-tab="primi" data-i18n-en="First Courses">Primi</button>
-      <button class="tab-btn" data-tab="secondi" data-i18n-en="Main Courses">Secondi</button>
-      <button class="tab-btn" data-tab="dolci" data-i18n-en="Desserts">Dolci</button>
+    <div class="dishes">
+      <div class="dish"><div class="dish-photo"><img src="1.jpg" alt=""></div><h4 data-en="Sea urchin tagliolini">Tagliolini ai ricci di mare</h4><p data-en="Fresh pasta made every morning.">Pasta fresca tirata ogni mattina.</p><span class="price">€32</span></div>
+      <div class="dish"><div class="dish-photo"><img src="2.jpg" alt=""></div><h4 data-en="Spaghetti with clams">Spaghetti alle vongole</h4><p data-en="The house classic, never changed.">Il classico della casa, mai cambiato.</p><span class="price">€26</span></div>
+      <div class="dish"><div class="dish-photo"><img src="3.jpg" alt=""></div><h4 data-en="Local fish soup">Zuppa di pesce locale</h4><p data-en="Catch of the day, with toasted bread.">Pescato del giorno, con crostini.</p><span class="price">€34</span></div>
+      <div class="dish"><div class="dish-photo"><img src="4.jpg" alt=""></div><h4 data-en="Lemon delight">Delizia al limone</h4><p data-en="Made with local lemons.">Con limoni raccolti qui vicino.</p><span class="price">€10</span></div>
     </div>
-
-    <div class="dish-grid active" id="antipasti">
-      <div class="dish-card"><div class="dish-photo"><img src="1.jpg" alt="Ricci di mare"></div><h4>Ricci di mare, tagliolini</h4><p>Ricci aperti a vista, pasta tirata a mano ogni mattina.</p><div class="dish-price">€32</div></div>
-      <div class="dish-card"><div class="dish-photo"><img src="2.jpg" alt="Ostriche"></div><h4>Ostriche del giorno</h4><p>Selezione secondo disponibilità del mattino.</p><div class="dish-price">€4 / cad.</div></div>
-      <div class="dish-card"><div class="dish-photo"><img src="3.jpg" alt="Alici marinate"></div><h4>Alici marinate al limone</h4><p>Limoni della costiera, olio extravergine locale.</p><div class="dish-price">€16</div></div>
-    </div>
-
-    <div class="dish-grid" id="primi">
-      <div class="dish-card"><div class="dish-photo"><img src="4.jpg" alt="Paccheri"></div><h4>Paccheri alla Positanese</h4><p>Pomodorino del piennolo, capperi di Salina, olive di Gaeta.</p><div class="dish-price">€24</div></div>
-      <div class="dish-card"><div class="dish-photo"><img src="5.jpg" alt="Vongole"></div><h4>Spaghetti alle vongole</h4><p>La ricetta non è cambiata dal 1949.</p><div class="dish-price">€28</div></div>
-      <div class="dish-card"><div class="dish-photo"><img src="6.jpg" alt="Nero di seppia"></div><h4>Linguine al nero di seppia</h4><p>Seppia locale, un tocco di peperoncino.</p><div class="dish-price">€26</div></div>
-    </div>
-
-    <div class="dish-grid" id="secondi">
-      <div class="dish-card"><div class="dish-photo"><img src="7.jpg" alt="Zuppa di pesce"></div><h4>Zuppa di pesce locale</h4><p>Il pescato del giorno, con crostini all'olio nuovo.</p><div class="dish-price">€36</div></div>
-      <div class="dish-card"><div class="dish-photo"><img src="8.jpg" alt="Branzino"></div><h4>Branzino al sale</h4><p>Cottura in crosta di sale, servito al tavolo.</p><div class="dish-price">€34</div></div>
-      <div class="dish-card"><div class="dish-photo"><img src="9.jpg" alt="Grigliata"></div><h4>Grigliata mista di pesce</h4><p>Selezione del giorno, verdure di stagione.</p><div class="dish-price">€38</div></div>
-    </div>
-
-    <div class="dish-grid" id="dolci">
-      <div class="dish-card"><div class="dish-photo"><img src="10.jpg" alt="Delizia al limone"></div><h4>Delizia al limone</h4><p>Limoni raccolti sui terrazzamenti sopra Positano.</p><div class="dish-price">€12</div></div>
-      <div class="dish-card"><div class="dish-photo"><img src="1.jpg" alt="Tiramisù"></div><h4>Tiramisù della casa</h4><p>Ricetta di famiglia, preparata ogni giorno.</p><div class="dish-price">€10</div></div>
-    </div>
+    <p class="menu-note" data-en="Prices are indicative and may change with the season.">Prezzi indicativi, possono variare in base alla stagione.</p>
   </div>
 </section>
 
 <section class="gallery" id="galleria">
   <div class="wrap">
     <div class="gallery-head">
-      <h2 data-i18n-en="Gallery">Galleria</h2>
-      <p data-i18n-en="A look at Chez Black — the dining room, the beach, the dishes that have told our story for seventy-five years.">Uno sguardo su Chez Black — la sala, la spiaggia, i piatti che ci raccontano da settantacinque anni.</p>
+      <div class="label" data-en="Gallery">Galleria</div>
+      <h2 class="title" data-en="A look inside">Uno sguardo dentro Onda Blu</h2>
     </div>
-    <div class="gallery-grid" id="galleryGrid">
-      <button data-index="0"><img src="1.jpg" alt="Chez Black — foto 1"></button>
-      <button data-index="1"><img src="2.jpg" alt="Chez Black — foto 2"></button>
-      <button data-index="2"><img src="3.jpg" alt="Chez Black — foto 3"></button>
-      <button data-index="3"><img src="4.jpg" alt="Chez Black — foto 4"></button>
-      <button data-index="4"><img src="5.jpg" alt="Chez Black — foto 5"></button>
-      <button data-index="5"><img src="6.jpg" alt="Chez Black — foto 6"></button>
-      <button data-index="6"><img src="7.jpg" alt="Chez Black — foto 7"></button>
-      <button data-index="7"><img src="8.jpg" alt="Chez Black — foto 8"></button>
-      <button data-index="8"><img src="9.jpg" alt="Chez Black — foto 9"></button>
-      <button data-index="9"><img src="10.jpg" alt="Chez Black — foto 10"></button>
-    </div>
-  </div>
-</section>
-
-<section class="gallery" id="celebrita">
-  <div class="wrap">
-    <div class="gallery-head">
-      <h2 data-i18n-en="Our Celebrity Guests">I nostri ospiti celebri</h2>
-      <p data-i18n-en="Over seventy-five years, Chez Black has welcomed actors, artists, and public figures who fell in love with Positano.">In settantacinque anni, Chez Black ha accolto attori, artisti e personaggi pubblici che si sono innamorati di Positano.</p>
-    </div>
-    <div class="gallery-grid" id="celebGalleryGrid">
-      <button data-index="0"><img src="C1.jpg" alt="Chez Black — celebrità 1"></button>
-      <button data-index="1"><img src="C2.jpg" alt="Chez Black — celebrità 2"></button>
-      <button data-index="2"><img src="C3.jpg" alt="Chez Black — celebrità 3"></button>
-      <button data-index="3"><img src="C4.jpg" alt="Chez Black — celebrità 4"></button>
-      <button data-index="4"><img src="C5.jpg" alt="Chez Black — celebrità 5"></button>
-      <button data-index="5"><img src="C6.jpg" alt="Chez Black — celebrità 6"></button>
-      <button data-index="6"><img src="C7.jpg" alt="Chez Black — celebrità 7"></button>
-      <button data-index="7"><img src="C8.jpg" alt="Chez Black — celebrità 8"></button>
-      <button data-index="8"><img src="C9.jpg" alt="Chez Black — celebrità 9"></button>
-      <button data-index="9"><img src="C10.jpg" alt="Chez Black — celebrità 10"></button>
+    <div class="strip" id="strip">
+      <button data-i="0"><img src="1.jpg" alt="Foto 1"></button>
+      <button data-i="1"><img src="2.jpg" alt="Foto 2"></button>
+      <button data-i="2"><img src="3.jpg" alt="Foto 3"></button>
+      <button data-i="3"><img src="4.jpg" alt="Foto 4"></button>
+      <button data-i="4"><img src="5.jpg" alt="Foto 5"></button>
+      <button data-i="5"><img src="6.jpg" alt="Foto 6"></button>
+      <button data-i="6"><img src="7.jpg" alt="Foto 7"></button>
+      <button data-i="7"><img src="8.jpg" alt="Foto 8"></button>
+      <button data-i="8"><img src="9.jpg" alt="Foto 9"></button>
+      <button data-i="9"><img src="10.jpg" alt="Foto 10"></button>
     </div>
   </div>
 </section>
 
-<!-- Lightbox -->
 <div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Chiudi">✕</button>
-  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Precedente">‹</button>
-  <img id="lightboxImg" src="" alt="">
-  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Successiva">›</button>
-  <div class="lightbox-count" id="lightboxCount"></div>
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Chiudi">✕</button>
+  <button class="lb-btn lb-nav lb-prev" id="lbPrev" aria-label="Precedente">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-btn lb-nav lb-next" id="lbNext" aria-label="Successiva">›</button>
+  <div class="lb-count" id="lbCount"></div>
 </div>
-
-<section class="events" id="eventi">
-  <div class="wrap events-grid">
-    <div>
-      <h2 data-i18n-en="The important moments, by the sea">I momenti importanti, in riva al mare</h2>
-      <p class="lede2" data-i18n-en="For seventy-five years Chez Black has hosted not just lunches and dinners, but the days people remember: a wedding on the beach, a milestone birthday, an evening among friends.">Da settantacinque anni Chez Black accoglie non solo pranzi e cene, ma i giorni che si ricordano: un matrimonio in spiaggia, un compleanno importante, una serata tra amici.</p>
-      <a href="#contatti" class="btn btn-ghost" style="margin-top:24px;" data-i18n-en="Check Availability">Richiedi disponibilità</a>
-      <div class="stat-row">
-        <div class="stat"><div class="n" data-count="50">0</div><div class="l" data-i18n-en="max guests, weddings">ospiti max, matrimoni</div></div>
-        <div class="stat"><div class="n" data-count="75">0</div><div class="l" data-i18n-en="years of history">anni di storia</div></div>
-        <div class="stat"><div class="n" data-count="3">0</div><div class="l" data-i18n-en="generations in the kitchen">generazioni in cucina</div></div>
-      </div>
-    </div>
-    <div class="events-list">
-      <div><span data-i18n-en="Weddings">Matrimoni</span><span data-i18n-en="up to 50 guests">fino a 50 persone</span></div>
-      <div><span data-i18n-en="Bachelor / bachelorette parties">Addio al celibato / nubilato</span><span data-i18n-en="on request">su richiesta</span></div>
-      <div><span data-i18n-en="Anniversaries">Anniversari</span><span data-i18n-en="on request">su richiesta</span></div>
-      <div><span data-i18n-en="Private events">Eventi privati</span><span data-i18n-en="on request">su richiesta</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="chef" id="chef">
-  <div class="wrap chef-grid">
-    <div class="chef-photo"><img src="hero.jpg" alt="Lo chef di Chez Black"></div>
-    <div>
-      <div class="chef-label" data-i18n-en="The family in the kitchen">La famiglia in cucina</div>
-      <h2 data-i18n-en="Three generations, &lt;span class=&#39;accent&#39;&gt;one recipe&lt;/span&gt;">Tre generazioni, <span class="accent">una sola ricetta</span></h2>
-      <p data-i18n-en="Since 1949, the kitchen at Chez Black has stayed in the same family's hands. Today it's the third generation carrying the tradition forward, with the same principle as always: we cook what the sea offers that morning.">Dal 1949, la cucina di Chez Black è rimasta nelle stesse mani di famiglia. Oggi è la terza generazione a portare avanti la tradizione, con lo stesso principio di sempre: si cucina quello che il mare offre quella mattina.</p>
-      <p class="chef-quote" data-i18n-en="&quot;The kitchen hasn't changed. Only the hands carrying it forward.&quot;">"La cucina non è cambiata. Solo le mani che la portano avanti."</p>
-    </div>
-  </div>
-</section>
 
 <section class="reviews" id="recensioni">
   <div class="wrap">
     <div class="reviews-head">
-      <span class="story-label" data-i18n-en="What they say">Cosa dicono</span>
-      <h2 data-i18n-en="Our guests">I nostri ospiti</h2>
-      <p data-i18n-en="Real reviews coming soon — these are placeholder spaces to be replaced with real reviews from Google and TripAdvisor.">Recensioni reali in arrivo — questi sono spazi segnaposto da sostituire con le recensioni vere di Google e TripAdvisor.</p>
+      <div class="label" data-en="Reviews">Recensioni</div>
+      <h2 class="title" data-en="What our guests say">Cosa dicono i nostri ospiti</h2>
     </div>
     <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-top"><div class="avatar"></div><div class="review-name">Nome Cognome<span>Google</span></div></div>
-        <div class="stars-row">★★★★★</div>
-        <p class="review-quote" data-i18n-en="&quot;Review text to be added here.&quot;">"Testo della recensione da inserire qui."</p>
-      </div>
-      <div class="review-card">
-        <div class="review-top"><div class="avatar"></div><div class="review-name">Nome Cognome<span>TripAdvisor</span></div></div>
-        <div class="stars-row">★★★★★</div>
-        <p class="review-quote" data-i18n-en="&quot;Review text to be added here.&quot;">"Testo della recensione da inserire qui."</p>
-      </div>
-      <div class="review-card">
-        <div class="review-top"><div class="avatar"></div><div class="review-name">Nome Cognome<span>Google</span></div></div>
-        <div class="stars-row">★★★★★</div>
-        <p class="review-quote" data-i18n-en="&quot;Review text to be added here.&quot;">"Testo della recensione da inserire qui."</p>
-      </div>
+      <div class="review"><div class="review-top"><div class="avatar"></div><div class="review-name">Nome Cognome<span>Google</span></div></div><div class="stars">★★★★★</div><p data-en="“Review text goes here.”">“Testo della recensione da inserire qui.”</p></div>
+      <div class="review"><div class="review-top"><div class="avatar"></div><div class="review-name">Nome Cognome<span>TripAdvisor</span></div></div><div class="stars">★★★★★</div><p data-en="“Review text goes here.”">“Testo della recensione da inserire qui.”</p></div>
+      <div class="review"><div class="review-top"><div class="avatar"></div><div class="review-name">Nome Cognome<span>Google</span></div></div><div class="stars">★★★★★</div><p data-en="“Review text goes here.”">“Testo della recensione da inserire qui.”</p></div>
     </div>
   </div>
 </section>
@@ -479,176 +283,111 @@
 <section class="contact" id="contatti">
   <div class="wrap contact-grid">
     <div>
-      <h2 data-i18n-en="Book your table">Prenota il tuo tavolo</h2>
-      <div class="info-rows">
-        <div class="info-row"><div class="k" data-i18n-en="address">indirizzo</div><div>Via del Brigantino, 19 — 84017 Positano (SA), Italia</div></div>
-        <div class="info-row"><div class="k" data-i18n-en="phone">telefono</div><div>+39 089 875 036</div></div>
-        <div class="info-row"><div class="k" data-i18n-en="email">email</div><div>info@chezblack.it</div></div>
-        <div class="info-row"><div class="k" data-i18n-en="hours">orari</div><div data-i18n-en="Every day, 12:00 – 24:00">Tutti i giorni, 12:00 – 24:00</div></div>
+      <div class="label" data-en="Contact">Contatti</div>
+      <h2 class="title" data-en="Book your table">Prenota il tuo tavolo</h2>
+      <div class="rows">
+        <div class="row"><div class="k" data-en="address">indirizzo</div><div>Via del Faro, 12 — 84010 Cala Serena (SA)</div></div>
+        <div class="row"><div class="k" data-en="phone">telefono</div><div>+39 089 000 000</div></div>
+        <div class="row"><div class="k">email</div><div>info@ondablu.example</div></div>
+        <div class="row"><div class="k">whatsapp</div><div>+39 333 000 0000</div></div>
+        <div class="row"><div class="k">instagram</div><div>@ondablu.example</div></div>
+        <div class="row"><div class="k" data-en="hours">orari</div><div data-en="Every day, 12:00 – 24:00">Tutti i giorni, 12:00 – 24:00</div></div>
+      </div>
+      <div class="cta-row">
+        <a href="tel:+390890000000" class="btn btn-primary" data-en="Call to book">Chiama per prenotare</a>
+        <a href="#prenota-form" class="btn btn-outline" data-en="Request online">Richiedi online</a>
       </div>
     </div>
-    <div class="map-box">
-      <iframe
-        src="https://www.google.com/maps?q=Via+del+Brigantino,19,Positano,SA,Italy&output=embed"
-        width="100%" height="100%" style="border:0; min-height:340px;"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        title="Chez Black su Google Maps">
-      </iframe>
+    <div class="map">
+      <iframe src="https://www.google.com/maps?q=Amalfi+Coast,Italy&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa"></iframe>
     </div>
+  </div>
+
+  <div class="wrap">
+    <form class="booking" id="prenota-form" novalidate>
+      <h3 data-en="Request a table">Richiedi un tavolo</h3>
+      <p class="booking-sub" data-en="Leave your details and we'll confirm by phone or WhatsApp.">Lascia i tuoi dati e ti confermiamo per telefono o WhatsApp.</p>
+      <div class="form-grid">
+        <label><span data-en="Full name">Nome e cognome</span><input type="text" name="name" required placeholder="Mario Rossi"></label>
+        <label><span data-en="Phone">Telefono</span><input type="tel" name="phone" required placeholder="+39 333 000 0000"></label>
+        <label><span data-en="Date">Data</span><input type="date" name="date" id="dateInput" required></label>
+        <label><span data-en="Guests">Persone</span>
+          <select name="guests">
+            <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option>
+          </select>
+        </label>
+        <label class="full"><span data-en="Notes (optional)">Note (facoltative)</span><textarea name="notes" rows="3"></textarea></label>
+      </div>
+      <button type="submit" class="btn btn-primary" data-en="Send request">Invia richiesta</button>
+      <p class="form-msg" id="formMsg" hidden data-en="Thank you! This is a demo form — nothing was sent.">Grazie! Questo è un modulo dimostrativo: nessun dato è stato inviato.</p>
+    </form>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">Chez Black<small>Via del Brigantino, 19 — Positano (SA)</small></div>
-      <div class="links">
-        <a href="#storia" data-i18n-en="Our Story">La Storia</a>
-        <a href="#menu" data-i18n-en="Menu">Menù</a>
-        <a href="#galleria" data-i18n-en="Gallery">Galleria</a>
-        <a href="#recensioni" data-i18n-en="Reviews">Recensioni</a>
-        <a href="#contatti" data-i18n-en="Contact">Contatti</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© Chez Black — Positano dal 1949</span>
-      <span data-i18n-en="Concept site — redesign">Sito concept — redesign</span>
-    </div>
+  <div class="wrap foot">
+    <span>© Onda Blu — Cala Serena</span>
+    <span data-en="Sample landing page">Landing page di esempio</span>
   </div>
 </footer>
 
 <script>
-  // Nav toggle
-  const toggle = document.getElementById('menuToggle');
-  const navlinks = document.getElementById('navlinks');
-  toggle.addEventListener('click', () => navlinks.classList.toggle('open'));
-  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+  // Mobile nav
+  const nl = document.getElementById('navlinks');
+  document.getElementById('menuToggle').addEventListener('click', () => nl.classList.toggle('open'));
+  nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nl.classList.remove('open')));
 
-  // Language switcher (IT default / EN)
-  const langBtns = document.querySelectorAll('.lang-btn');
-  const i18nEls = document.querySelectorAll('[data-i18n-en]');
-  i18nEls.forEach(el => { el.dataset.i18nIt = el.innerHTML; });
-  langBtns.forEach(btn => {
+  // Language switch (IT default, EN second)
+  const els = document.querySelectorAll('[data-en]');
+  els.forEach(el => el.dataset.it = el.innerHTML);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      langBtns.forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const lang = btn.dataset.lang;
-      document.documentElement.lang = lang;
-      i18nEls.forEach(el => { el.innerHTML = lang === 'en' ? el.dataset.i18nEn : el.dataset.i18nIt; });
+      const en = btn.dataset.lang === 'en';
+      document.documentElement.lang = btn.dataset.lang;
+      els.forEach(el => el.innerHTML = en ? el.dataset.en : el.dataset.it);
     });
   });
 
-  // Light / dark theme toggle
-  const themeToggle = document.getElementById('themeToggle');
-  themeToggle.addEventListener('click', () => {
-    const isLight = document.body.classList.toggle('light-mode');
-    themeToggle.textContent = isLight ? '☾' : '☀';
+  // Demo booking form (nothing is sent)
+  const dateInput = document.getElementById('dateInput');
+  dateInput.min = new Date().toISOString().split('T')[0];
+  document.getElementById('prenota-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target;
+    if (!f.name.value.trim() || !f.phone.value.trim() || !f.date.value) { f.reportValidity(); return; }
+    document.getElementById('formMsg').hidden = false;
+    f.reset();
   });
 
-  // Menu tabs
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const dishGrids = document.querySelectorAll('.dish-grid');
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      dishGrids.forEach(d => d.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.tab).classList.add('active');
-    });
+  // Gallery lightbox with swipe
+  const imgs = Array.from({length:10}, (_, i) => `${i+1}.jpg`);
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCount = document.getElementById('lbCount');
+  let cur = 0;
+  const show = () => { lbImg.src = imgs[cur]; lbCount.textContent = `${cur+1} / ${imgs.length}`; };
+  const open = i => { cur = i; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
+  const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+  const next = () => { cur = (cur+1) % imgs.length; show(); };
+  const prev = () => { cur = (cur-1+imgs.length) % imgs.length; show(); };
+  document.querySelectorAll('#strip button').forEach(b => b.addEventListener('click', () => open(+b.dataset.i)));
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbNext').addEventListener('click', next);
+  document.getElementById('lbPrev').addEventListener('click', prev);
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
   });
-
-  // Story scroll-linked year
-  const yearEl = document.querySelector('.story-year');
-  const barEl = document.querySelector('.story-bar');
-  const entries = document.querySelectorAll('.story-entry');
-  const io = new IntersectionObserver((observed) => {
-    observed.forEach(entry => {
-      if (entry.isIntersecting) {
-        yearEl.textContent = entry.target.dataset.storyYear;
-        yearEl.classList.add('active');
-        barEl.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-45% 0px -45% 0px' });
-  entries.forEach(e => io.observe(e));
-
-  // Stat count-up
-  const stats = document.querySelectorAll('.stat .n');
-  const statIO = new IntersectionObserver((observed) => {
-    observed.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.count, 10);
-        let current = 0;
-        const step = Math.max(1, Math.round(target / 40));
-        const tick = () => {
-          current += step;
-          if (current >= target) { el.textContent = target; return; }
-          el.textContent = current;
-          requestAnimationFrame(tick);
-        };
-        tick();
-        statIO.unobserve(el);
-      }
-    });
-  }, { threshold: 0.6 });
-  stats.forEach(s => statIO.observe(s));
-
-  // Gallery lightbox with swipe — supports multiple galleries
-  const galleries = {
-    main: Array.from({length: 10}, (_, i) => `${i + 1}.jpg`),
-    celeb: Array.from({length: 10}, (_, i) => `C${i + 1}.jpg`)
-  };
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxCount = document.getElementById('lightboxCount');
-  let currentGalleryKey = 'main';
-  let currentIndex = 0;
-
-  function openLightbox(key, index){
-    currentGalleryKey = key;
-    currentIndex = index;
-    updateLightbox();
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox(){
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function updateLightbox(){
-    const imgs = galleries[currentGalleryKey];
-    lightboxImg.src = imgs[currentIndex];
-    lightboxImg.alt = `Chez Black — foto ${currentIndex + 1}`;
-    lightboxCount.textContent = `${currentIndex + 1} / ${imgs.length}`;
-  }
-  function showNext(){ const imgs = galleries[currentGalleryKey]; currentIndex = (currentIndex + 1) % imgs.length; updateLightbox(); }
-  function showPrev(){ const imgs = galleries[currentGalleryKey]; currentIndex = (currentIndex - 1 + imgs.length) % imgs.length; updateLightbox(); }
-
-  document.querySelectorAll('#galleryGrid button').forEach(btn => {
-    btn.addEventListener('click', () => openLightbox('main', parseInt(btn.dataset.index, 10)));
-  });
-  document.querySelectorAll('#celebGalleryGrid button').forEach(btn => {
-    btn.addEventListener('click', () => openLightbox('celeb', parseInt(btn.dataset.index, 10)));
-  });
-  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-  document.getElementById('lightboxNext').addEventListener('click', showNext);
-  document.getElementById('lightboxPrev').addEventListener('click', showPrev);
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
-
-  // Swipe support
-  let touchStartX = 0;
-  lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, {passive:true});
-  lightbox.addEventListener('touchend', (e) => {
-    const touchEndX = e.changedTouches[0].screenX;
-    const diff = touchEndX - touchStartX;
-    if (Math.abs(diff) > 50) { diff < 0 ? showNext() : showPrev(); }
+  let sx = 0;
+  lb.addEventListener('touchstart', e => { sx = e.changedTouches[0].screenX; }, {passive:true});
+  lb.addEventListener('touchend', e => {
+    const d = e.changedTouches[0].screenX - sx;
+    if (Math.abs(d) > 50) { d < 0 ? next() : prev(); }
   }, {passive:true});
 </script>
 
