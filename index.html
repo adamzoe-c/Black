@@ -65,38 +65,30 @@
   .btn-sm{padding:10px 22px; font-size:0.88rem;}
 
   /* HERO */
-  .hero{position:relative; min-height:calc(100vh - 76px); min-height:calc(100svh - 76px); display:flex; align-items:flex-end; padding:0; overflow:hidden; color:#fff; background:#1b1a17;}
-  .hero-bg{position:absolute; inset:0; overflow:hidden;}
-  .hero-bg img{width:100%; height:100%; object-fit:cover; object-position:center; animation:slowzoom 22s ease-out both;}
-  @keyframes slowzoom{from{transform:scale(1.08);} to{transform:scale(1);}}
-  .hero-scrim{position:absolute; inset:0; background:
-    linear-gradient(180deg, rgba(15,12,8,0.25) 0%, rgba(15,12,8,0.15) 35%, rgba(15,12,8,0.82) 100%),
-    linear-gradient(90deg, rgba(15,12,8,0.55) 0%, rgba(15,12,8,0) 70%);}
-  .hero-inner{position:relative; z-index:2; width:100%; padding-top:90px; padding-bottom:150px;}
-  .hero-content{max-width:680px;}
-  .hero-badge{display:inline-flex; align-items:center; gap:8px; font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.35); background:rgba(255,255,255,0.1); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); padding:9px 18px; border-radius:30px;}
-  .hero-badge::before{content:""; width:7px; height:7px; border-radius:50%; background:#F4A261; box-shadow:0 0 0 4px rgba(244,162,97,0.25);}
-  .hero h1{font-size:clamp(2.3rem,5.6vw,4.4rem); line-height:1.07; margin-top:24px; text-shadow:0 2px 24px rgba(0,0,0,0.35);}
-  .hero h1 em{font-style:italic; color:#F4A261; font-weight:500;}
-  .hero p{margin-top:22px; max-width:50ch; font-size:1.05rem; color:rgba(255,255,255,0.9);}
-  .hero-actions{margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;}
-  .hero-chips{position:absolute; z-index:3; left:0; right:0; bottom:56px;}
-  .hero-chips ul{list-style:none; display:flex; gap:10px 14px; flex-wrap:wrap;}
-  .hero-chips li{font-size:0.82rem; font-weight:500; padding:8px 16px; border-radius:30px; background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.28); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);}
-  .hero-curve{position:absolute; z-index:4; left:0; right:0; bottom:-1px; line-height:0;}
-  .hero-curve svg{display:block; width:100%; height:44px;}
+  .hero{position:relative; min-height:calc(100vh - 76px); min-height:calc(100svh - 76px); display:flex; align-items:center; padding:0; overflow:hidden; color:var(--ink); background:var(--bg-alt);}
+  .hero-bg{position:absolute; inset:0;}
+  .hero-bg img{width:100%; height:100%; object-fit:cover; object-position:center;}
+  .hero-scrim{position:absolute; inset:0; background:linear-gradient(90deg, rgba(251,247,239,0.96) 0%, rgba(251,247,239,0.88) 32%, rgba(251,247,239,0.45) 58%, rgba(251,247,239,0) 82%);}
+  .hero-inner{position:relative; z-index:2; width:100%; padding-top:80px; padding-bottom:80px;}
+  .hero-content{max-width:620px;}
+  .hero-badge{display:inline-flex; align-items:center; gap:12px; font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:600; color:var(--gold);}
+  .hero-badge::before{content:""; width:42px; height:1.5px; background:var(--gold);}
+  .hero h1{font-size:clamp(2.6rem,6.4vw,5.2rem); line-height:1.04; margin-top:22px; letter-spacing:-0.02em; font-weight:600;}
+  .hero h1 em{font-style:italic; color:var(--orange); font-weight:500;}
+  .hero p{margin-top:24px; max-width:46ch; font-size:1.08rem; color:#4a463b;}
+  .hero-actions{margin-top:36px; display:flex; gap:14px; flex-wrap:wrap;}
+  .hero .btn-ghost{border-color:rgba(23,21,15,0.45); color:var(--ink);}
+  .hero .btn-ghost:hover{background:var(--ink); border-color:var(--ink); color:#fff;}
   @media (max-width:820px){
-    .hero-scrim{background:linear-gradient(180deg, rgba(15,12,8,0.45) 0%, rgba(15,12,8,0.35) 40%, rgba(15,12,8,0.88) 100%);}
-    .hero-inner{padding-top:60px; padding-bottom:150px;}
-    .hero-chips{bottom:46px;}
-    .hero-curve svg{height:28px;}
+    .hero{align-items:flex-end; min-height:calc(100svh - 76px);}
+    .hero-scrim{background:linear-gradient(180deg, rgba(251,247,239,0) 0%, rgba(251,247,239,0.25) 30%, rgba(251,247,239,0.94) 62%, rgba(251,247,239,0.98) 100%);}
+    .hero-inner{padding-top:240px; padding-bottom:44px;}
   }
   @media (max-width:560px){
-    .hero-actions{flex-direction:column; align-items:stretch; max-width:320px;}
+    .hero-actions{flex-direction:column; align-items:stretch; max-width:340px;}
     .hero p{font-size:1rem;}
-    .hero-chips li{font-size:0.76rem; padding:7px 13px;}
+    .hero-badge{font-size:0.72rem; letter-spacing:0.16em;}
   }
-  @media (prefers-reduced-motion: reduce){ .hero-bg img{animation:none;} }
 
   /* ABOUT */
   .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;}
@@ -225,12 +217,6 @@
       </div>
     </div>
   </div>
-  <div class="hero-chips"><div class="wrap"><ul>
-    <li data-en="Catch of the day">Pescato del giorno</li>
-    <li data-en="Waterfront terrace">Terrazza sul mare</li>
-    <li data-en="Open daily 12:00 – 24:00">Aperto tutti i giorni 12–24</li>
-  </ul></div></div>
-  <div class="hero-curve"><svg viewBox="0 0 1440 44" preserveAspectRatio="none" aria-hidden="true"><path d="M0 44 V30 Q720 -14 1440 30 V44Z" fill="#fff"/></svg></div>
 </section>
 
 <section class="about" id="chi-siamo">
